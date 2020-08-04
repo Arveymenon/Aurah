@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Events
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let event of featured_events">
+    <ion-card (tap)="goToEvent(event)">
+      <div style="height: 200px">
+        <img src="http://oxygen.idgafgroup.com/storage/app/public/{{ event.cover_image }}" onError="this.src='assets/images/dd.png';" class="featured_image">
+      </div>
+      <div class="featured_details">
+        <div class="p-t-10 featured_sm_font">{{ event.type }}</div>
+        <div class="h7">{{ event.title }}</div>
+        <div class="featured_sm_font">{{ event.city }}<span float-right> &#8377;{{ event.starting_price }} onward</span></div>
+      </div>
+    </ion-card>
+  </div>
+  
+    <ion-row>
+        <ion-col size="6" *ngFor="let event of events">
+            <ion-card (tap)="goToEvent(event)" class="events">
+              <div class="event_image">
+                <img src="http://oxygen.idgafgroup.com/storage/app/public/{{ event.cover_image }}" onError="this.src='assets/images/dd.png';">
+              </div>
+              <div class="p-t-10 featured_sm_font">{{ event.type }}</div>
+              <div class="h7">{{ event.title }}</div>
+              <div class="sm-font">{{ event.city }}<br>&#8377;{{ event.starting_price }} onward</div>
+            </ion-card>
+        </ion-col>
+      
+      </ion-row>
+</ion-content>

@@ -1,0 +1,11 @@
+/** Proxima Nova **/
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('ProximaNova.eot');
+    src: url('ProximaNova.eot?#iefix') format('embedded-opentype'),
+         url('ProximaNova.woff2') format('woff2'),
+         url('ProximaNova.ttf') format('truetype'),
+         url('ProximaNova.svg#proxima_nova_ltsemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

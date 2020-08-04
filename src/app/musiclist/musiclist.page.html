@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="title">{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  <ion-list class="p-t-16">
+    <ion-item *ngFor="let music of album">
+      <ion-thumbnail>
+        <ion-img src="http://oxygen.idgafgroup.com/storage/app/public/{{ music.cover_image }}"></ion-img>
+      </ion-thumbnail>
+      <ion-grid>
+        <ion-row (click)="playMusic(music.id)">
+          <ion-col size="12">
+            {{ music.title }}<br>  
+            <p class="font-subtitle no-vertical-margin truncate">
+              {{ music.description }}
+            </p>
+          </ion-col>
+          <!-- More icon on the end -->
+          <!-- <ion-col size="1">
+            <ion-icon name="more"></ion-icon>
+          </ion-col> -->
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
+  
+</ion-content>

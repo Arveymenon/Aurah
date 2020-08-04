@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="audio_image">
+    <img src="{{background}}" onError="assets/images/dd.png">
+  </div>
+  <vg-player style="height: 50px;">
+    <vg-controls>
+        <vg-play-pause></vg-play-pause>
+
+        <!-- <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display> -->
+
+        <vg-scrub-bar>
+            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>/
+            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+        </vg-scrub-bar>
+
+        <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+        <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+        <vg-mute></vg-mute>
+
+        <vg-fullscreen></vg-fullscreen>
+    </vg-controls>
+
+    <audio #media [vgMedia]="media" id="myAudio" preload="auto">
+        <source *ngFor="let audio of sources" [src]="audio.src" [type]="audio.type">
+    </audio>
+</vg-player>
+</ion-content>

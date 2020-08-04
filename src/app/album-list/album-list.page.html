@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        {{ album.genre }}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-grid>
+      <!-- <ion-row class="no-vertical-padding">
+        <ion-col class="no-vertical-padding">
+          <p class="no-vertical-margin header-left">Albums</p>
+        </ion-col>
+      </ion-row> -->
+      <ion-row>
+        <ion-col size="6" *ngFor="let content of album.content">
+          <div (tap)="goToMusicList(content.id)" style="text-align: center">
+            <img class="album_image" src="http://oxygen.idgafgroup.com/storage/app/public/{{ content.cover_image }}" onError='this.src="/assets/images/music/music4.jpg"'>
+            <div class="album">
+              <div class="album-name truncate">
+                {{ content.title }}
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </ion-content>

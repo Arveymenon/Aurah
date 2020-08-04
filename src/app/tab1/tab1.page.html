@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Aurah</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content> -->
+<ion-content *ngIf="content" overflow-scroll="false">
+  <div class="home-overlay" [ngStyle]="{'background': 'url(http://oxygen.idgafgroup.com/storage/app/public/'+ this.featured[0].cover_image + ') no-repeat center center'}" [style.background-size]="'cover'"></div>
+  <div class="home-content">  
+    <div class="carousel-info">
+      <img *ngIf="featured[0].logo" class="carousel-logo" src="http://oxygen.idgafgroup.com/storage/app/public/{{ featured[0].logo }}" onError="this.src='';">
+      <p class="no-vertical-margin carousel-text">
+        {{ featured[0].descrption }}
+      </p>
+      <ion-grid class="no-padding">
+        <ion-row class="no-padding">
+          <ion-col class="no-padding">
+            <ion-button color="light" fill="outline" (click)="play()">WATCH NOW</ion-button>
+          </ion-col>
+          <ion-col class="no-padding">
+            <p class="button-right no-vertical-margin"><ion-button class="btn" color="light" (click)="goToPage(featured[0].id,featured[0].type_id)" fill="outline"><ion-icon slot="icon-only" name="add"></ion-icon></ion-button></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  <div *ngIf="content">
+    <div *ngIf="content.length != 0">  
+      <div *ngFor="let content of content; let i = index">
+        <div *ngIf="content.content.length != 0">
+          <ion-grid class="no-vertical-padding">
+            <ion-row class="no-vertical-padding">
+              <ion-col class="no-vertical-padding">
+                <p class="no-vertical-margin header-left ion-text-capitalize">{{ content.genre }}</p>
+              </ion-col>
+              <ion-col class="no-vertical-padding">
+                <p class="header-right no-vertical-margin default-gradient-text">MORE</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <div *ngIf="content.priority == 1" class="card-section long-card">
+            <ion-card class="moving-card" *ngFor="let video of content.content">
+              <img src="http://oxygen.idgafgroup.com/storage/app/public/{{ video.cover_image }}" onError="this.src='assets/images/dd.png';" (tap)="goToPage(video.id, video.type_id)">
+            </ion-card>
+          </div>
+
+          <div *ngIf="content.priority == 2" class="card-section medium-card">
+            <ion-card class="moving-card" *ngFor="let video of content.content">
+              <img src="http://oxygen.idgafgroup.com/storage/app/public/{{ video.cover_image }}" onError="this.src='assets/images/dd.png';" (tap)="goToPage(video.id, video.type_id)">
+            </ion-card>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div *ngIf="content.length == 0" class="text-center">
+      No Content Available Yet
+    </div>
+  </div>
+  </div>
+</ion-content>

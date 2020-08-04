@@ -1,0 +1,41 @@
+.small-font{
+    font-size: 12px;
+}
+.med-font{
+    font-size: 16px;
+}
+.color-grey{
+    color: #8c8c8c;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.padding-left-right-15{
+    padding: 0 15px 0 15px;
+}
+
+.text-white{
+    color: white;
+}
+.ion-float-right{
+    float:right;
+}
+.avatar{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.text-center{
+    text-align: center
+}
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border: 1px solid grey;
+  }
+.event_image{
+    width: unset;
+}

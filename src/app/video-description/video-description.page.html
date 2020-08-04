@@ -1,0 +1,96 @@
+<ion-header class="custom-header">
+  <ion-toolbar translucent>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="no-header" *ngIf="this.content">
+  <div class="video-overlay">
+    <div class="carousel-info home-content">
+      <p class="no-vertical-margin carousel-text" class="line-clamp-3" style="-webkit-box-orient: vertical; ">
+        {{ content.description }}
+      </p>
+      <ion-grid class="no-padding">
+        <ion-row class="no-padding">
+          <ion-col class="no-padding">
+            <ion-button color="light" (click)="play(this.content.episodes[0].id)" fill="outline">WATCH NOW</ion-button>
+          </ion-col>
+          <ion-col class="no-padding">
+            <!-- <p class="button-right no-vertical-margin"><ion-button class="btn" color="light" fill="outline"><ion-icon slot="icon-only" name="add"></ion-icon></ion-button></p> -->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+    <div class="segments" *ngIf="content.episodes.length != 0 || content.members.length != 0 || content.extras.length != 0">
+  <!-- Segment with default selection -->
+      <ion-segment (ionChange)="segmentChanged($event)" value="episodes" color="#fff">
+        <ion-segment-button value="episodes" *ngIf="type_id == 2 && content.episodes.length != 0">
+          <ion-label>Episodes</ion-label>
+        </ion-segment-button>
+
+        <ion-segment-button value="team" *ngIf="content.members.length != 0">
+            <ion-label>Team</ion-label>
+          </ion-segment-button>
+
+        <ion-segment-button value="extras" *ngIf="content.extras.length != 0">
+            <ion-label>Extras</ion-label>
+        </ion-segment-button>
+
+      </ion-segment>
+      <div *ngIf="segmentOption == 'episodes'">
+        <!-- List of Sliding Items -->
+        <ion-list lines='none'>
+          <div *ngFor="let episode of content.episodes">
+            <ion-item-sliding>
+              <ion-item no-padding>
+                <ion-grid no-margin>
+                  <ion-row no-padding (tap)="play(episode.id)">
+                    <ion-col size="5" style="color: #fff;" class="series-img" no-padding>
+                      <img src="http://oxygen.idgafgroup.com/storage/app/public/{{ episode.cover_image }}" ionError="assets/images/dd.png" align="middle">
+                      </ion-col>
+                    <ion-col size="7" class="episode-details" no-padding>
+                      <h6 no-margin class="episode-title">{{ episode.title }}</h6>
+                      <p no-margin class="episode-detail line-clamp-2" style="-webkit-box-orient: vertical;">{{ episode.description }}</p>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+              <ion-item-options side="end">
+                <ion-item-option (click)="unread('item')">Download<ion-icon name="arrow-round-down"></ion-icon></ion-item-option>
+              </ion-item-options>
+            </ion-item-sliding>
+          </div>
+        </ion-list>
+      </div>
+
+      <div *ngIf="segmentOption == 'team'">
+        <ion-grid>
+          <ion-row>
+            <ion-col class="team-col" size="auto" *ngFor="let member of content.members">
+            <div class="cast-member" [ngStyle]="{'background': 'url(http://oxygen.idgafgroup.com/storage/app/public/'+ member.member.image + ') no-repeat center center'}" [style.background-size]="'cover'">
+              </div>
+              <p text-center>{{ member.member.name }}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div *ngIf="segmentOption == 'extras'">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="4" *ngFor="let member of content.extra">
+                <div class="extra" [ngStyle]="{'background': 'url(http://oxygen.idgafgroup.com/storage/app/public/'+ member.member.image + ') no-repeat center center'}" [style.background-size]="'cover'">
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      </div>
+    </div>
+    <div *ngIf="content.episodes.length == 0 && content.members.length == 0 && content.extras.length == 0 && content.type_id != 1" style="text-align: center">
+      No Content For Show Yet
+    </div>
+</ion-content>
+<!-- [style.BackgroundImage]="'url(&quot;http://oxygen.idgafgroup.com/public/member.member.image&quot;)'" style="background-image: url('http://oxygen.idgafgroup.com/public/storage/app/public/'image(member.member.image)); -->

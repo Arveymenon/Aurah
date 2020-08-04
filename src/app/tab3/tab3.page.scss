@@ -1,0 +1,41 @@
+.p-t-10{
+    padding-top: 10px !important;
+}
+.h7{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    padding: 5px 0 5px 0;
+}
+.sm-font{
+    font-size: 0.8em;
+}
+.featured_sm_font{
+    font-size: 0.8em;
+    color: #fff;
+}
+
+.featured_image{
+    height: unset;
+    margin-top: -15%;
+}
+.featured_details{
+    padding: 7px 10px 7px 10px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.678)
+}
+
+.events{
+    height: 100%;
+    .event_image{
+        text-align: center;
+        height: 70%;
+    }
+}
+
+.truncate{
+    white-space: nowrap; 
+    width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}

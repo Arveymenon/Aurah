@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Music
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content overflow-scroll="false">
+  <ion-grid>
+    <!-- <ion-row>
+      <ion-col size="6" (tap)="musicAlbumPage()">
+        <div class="album" [style.backgroundImage]="'url(assets/images/series/adks1.png)'">
+          <div class="album-name">
+            Rocky In
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="album" [style.backgroundImage]="'url(assets/images/series/adks1.png)'">
+          <div class="album-name">
+            Rocky In
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="album" [style.backgroundImage]="'url(assets/images/series/adks1.png)'">
+          <div class="album-name">
+            Rocky In
+          </div>
+        </div>
+      </ion-col>
+    </ion-row> -->
+    <ion-slides speed="8000" #mySlider (ionSlidesDidLoad)="slidesDidLoad(mySlider)" style="position: absolute; z-index: 0;">
+      <ion-slide class="w-100" *ngFor="let featured of featured_music" style="width: 100% !important;">
+        <ion-card class="music-carousel">
+            <img style="width:100%; height: 100%;" class="featured_image" src="http://oxygen.idgafgroup.com/storage/app/public/{{ featured.cover_image }}" onError="this.src='assets/images/music/wee.jpg';">
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+    <div style="margin-top: 70%">
+      <div *ngFor="let albums of music">
+        <div *ngIf="albums.content.length != 0">
+          <ion-row class="m-l-7">
+            <ion-col>
+              <div>
+                <span class="font-genre">{{ albums.genre }}</span>
+              </div>
+            </ion-col>
+            
+            <ion-col>
+              <div>
+                <span float-right class="font-more default-gradient-text" (tap)="goToAlbumList(albums.id)">More</span>
+              </div>
+              </ion-col>
+          </ion-row>
+          
+          <!-- *ngFor="let album of albums.content" (tap)="goToMusicList(album.id,album.type_id)" -->
+          <!-- src="http://oxygen.idgafgroup.com/storage/app/public/{{ album.cover_image }}" onError="this.src='assets/images/music/wee.jpg';" -->
+          <div class="card-section medium-card">
+              <ion-card class="moving-card" *ngFor="let album of albums.content" (tap)="goToMusicList(album.id,album.type_id)" >
+                <img style="height: 100%;" src="http://oxygen.idgafgroup.com/storage/app/public/{{ album.cover_image }}" onError="this.src='assets/images/music/wee.jpg';">
+              </ion-card>
+            </div>
+        </div>
+      </div>
+    </div>
+  </ion-grid>
+
+<!-- <div class="text-white ion-text-center p-l-r-3 truncate font-song-name">
+  {{ album.title }}
+</div> -->
+  
+</ion-content>

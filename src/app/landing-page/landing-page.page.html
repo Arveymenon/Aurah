@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="background-overlay">
+    </div>
+    <div class="landing-options" padding>
+      <h3>India's First and Largest<br>Short Films Platform</h3>
+      <ul>
+        <li>Short Films Platform</li>
+        <li>Stream and download in HD</li>
+        <li>No Monthly Subscription. Absolutely free for the first 3 months.</li>
+      </ul>
+      <ion-button (tap)="goToRegisterPage()" expand="block" color="secondary">Subscribe Now</ion-button>
+      <ion-button (tap)="goToLoginPage()" expand="block" fill="outline">Login</ion-button>
+    </div>
+</ion-content>

@@ -1,0 +1,28 @@
+.welcome-card img {
+    max-height: 35vh;
+    overflow: hidden;
+  }
+.album_image{
+  height: 120px;
+}  
+.album{
+    // height: 100px;
+    margin: 5px;
+    // border-radius: 15px;
+    // background-size: cover;
+    // background-position: bottom;
+    .album-name{
+        text-align: center;
+        background: linear-gradient(to top, #000, #292929);
+        position: relative;
+        top: 80%;
+        font-size: 18px;
+    }
+}
+.truncate {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+

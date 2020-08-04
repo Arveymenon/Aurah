@@ -1,0 +1,304 @@
+ // http://ionicframework.com/docs/theming/
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Lato|Oxygen');
+
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+@import '~videogular2/fonts/videogular.css';
+
+// .card-section {
+//   scroll-snap-type: x mandatory;
+//   overflow-x: scroll;
+//   display: flex;
+// }
+// .box-card {
+//   scroll-snap-align: center;
+// }
+
+body {
+    font-weight: var(--ion-font-weight);
+    font-size: var(--ion-font-size);
+}
+
+ion-toolbar {
+    --min-height: 40px;
+    ion-title {
+        padding-left: 5px;
+    }
+}
+
+.card-section {
+    margin-left: 12px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-bottom: 15px;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    ion-card {
+        margin-left: 5px;
+        margin-right: 5px;
+        border-radius: 0px;
+    }
+
+    .moving-card {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        
+        ion-img {
+            height: 100%;
+            object-fit: fill !important;
+        }
+
+    }
+
+    .moving-card:nth-child(1) {
+        margin-left: 0;
+    }
+}
+
+.home-carousel-section {
+    margin-left: 0px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-bottom: 15px;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    ion-card {
+        margin-left: 0px;
+        margin-right: 0px;
+        border-radius: 0px;
+    }
+
+    .moving-card {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        
+        img {
+            height: 100%;
+            object-fit: fill !important;
+        }
+
+    }
+
+    .moving-card:nth-child(1) {
+        margin-left: 0;
+    }
+}
+
+
+.long-card {
+    height: 60%;
+    .moving-card {
+        width: 70%;
+    }
+}
+
+.medium-card {
+    height: 35%;
+    .moving-card {
+        width: 40%;
+    }
+}
+
+.music-card {
+    height: 150px;
+    margin: 0;
+    .moving-card {
+        width: 40%;
+    }
+}
+
+.normal-card {
+    height: 35%;
+    .moving-card {
+        width: 80%;
+    }
+}
+
+.carousel-card {
+    height: 100%;
+    .moving-card {
+        width: 100%;
+    }
+}
+
+.small-card {
+    height: 10%;
+    .moving-card {
+        width: 40%;
+    }
+}
+
+.default-gradient-text {
+    background: linear-gradient(to right, rgba(255, 0, 180, 1), rgba(4, 247, 255, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+.no-margin {
+    margin: 0px;
+}
+
+.no-vertical-padding {
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.no-vertical-margin {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.no-horizontal-margin {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.header-right {
+    text-align: right;
+    color: var(--ion-color-primary);
+    margin-top: 2px;
+    font-size: 18px;
+}
+
+.button-right {
+    text-align: right;
+    .btn {
+        --padding-start: 3px;
+        --padding-end: 3px;
+        --border-radius: 50%;
+    }
+}
+
+.home-overlay {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url('assets/images/dd-bg.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, #000000 60%);
+      opacity: .6; 
+    }
+}
+
+.home-banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, #000000 60%);
+      opacity: .6; 
+    }
+}
+
+.home-content {
+    position: absolute;
+    top: 50%
+}
+
+.carousel-info {
+    margin: 0px 10px 20px 10px;
+
+    .carousel-text {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: white;
+        font-weight: bold;
+    }
+
+    .carousel-logo {
+        width: 40%;
+        margin-bottom: 5px;
+    }
+}
+
+ion-segment{
+    background-color: #171717;
+    color: white;
+}
+
+.line-clamp-3{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden;
+}
+
+.line-clamp-2{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden;
+}
+
+
+
+/* Set Up */ 
+
+.w-100{ width: 100% !important }
+.w-50{ width: 50% }
+
+/* Fonts */ 
+
+.text-0.8{ font-size: 0.8em; }
+.text-0.6{ font-size: 0.6em; }
+.text-white{
+    color: white;
+}
+
+/* End Fonts */ 
+.header-ios ion-toolbar:last-child{
+    --border-width: 0;
+}
+.no-header {
+    position: absolute;
+    top: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+.custom-header:after{
+    background: none;
+}

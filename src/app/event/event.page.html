@@ -1,0 +1,39 @@
+<ion-header>
+    
+</ion-header>
+
+<ion-content *ngIf="this.event">
+  <ion-img src="http://oxygen.idgafgroup.com/storage/app/public/{{ event.cover_image }}"></ion-img>
+  <ion-grid class="padding-left-right-15">
+    <h4>{{ event.title }}</h4>
+    <div class="small-font color-grey">{{ getTags(event.tags) }}<br> {{ event.duration }}hrs | <div *ngIf="event.min_age">Age {{ event.min_age }}+</div></div>
+    <span class="med-font" *ngIf="event.event_date">{{ getDate(event.event_date) }} at {{ getTime(event.event_date) }}</span><span class="ion-float-right"> &#8377;{{ event.starting_price }}</span>
+    <ion-row>
+      <h6>Venue</h6>
+    </ion-row>
+    <span class="small-font color-grey">Artists</span>  
+    <hr>
+    <ion-row>
+      <ion-col col-size="3" *ngFor="let member of event.members">
+        <ion-avatar class="center">
+            <img src="http://oxygen.idgafgroup.com/storage/app/public/{{ member.image }}" onError="this.src='assets/images/dd.png';">
+        </ion-avatar>
+        <div class="ion-text-center">
+        <span class="small-font color-grey">{{ member.name }}</span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
+  
+  
+  <div class="padding-left-right-15">
+    <p class="small-font">{{ event.description }}</p>
+  </div>
+  <div class="card-section normal-card">
+    <ion-card class="moving-card" *ngFor="let image of images">
+      <img src="http://oxygen.idgafgroup.com/storage/app/public/{{ image }}" class="event_image">
+    </ion-card>
+  </div>
+  
+</ion-content>
+<ion-footer><ion-button color="secondary" size="block" (click)="book()">Book Now</ion-button></ion-footer>

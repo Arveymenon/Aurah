@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-button expand="block" color="secondary"><ion-icon slot="start" name="logo-facebook"></ion-icon>Continue With Facebook</ion-button>
+    <ion-button expand="block" fill="outline"><ion-icon slot="start" name="logo-google"></ion-icon>Continue With Google</ion-button>
+    <p text-center> or </p>
+    <p text-center>Sign Up With You Email</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label class="tnc">I agree to Original Oxygen's Terms of Use And Privacy Policy</ion-label>
+      <ion-checkbox slot="start" style="--border-color: rgba(191, 191, 191, 0.54); margin-right: 18px" color="secondary"></ion-checkbox>
+    </ion-item> -->
+    <ion-button type="submit" [disabled]="!loginForm.valid" expand="block" color="secondary">Sign In</ion-button>
+    <p text-center (tap)="goToRegister()">Create account</p>
+
+    </form>
+
+</ion-content>
